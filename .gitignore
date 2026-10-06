@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------------------
+# Allow-list .gitignore: EVERYTHING is ignored unless explicitly re-included
+# below. This keeps private data (settings.ini with camera URLs/passwords,
+# recordings, caches, signing certs, plugins, backend, build output) out of
+# the public repository even when new files appear in the working tree.
+# To publish a new top-level file or folder, add a "!name" line here.
+# ---------------------------------------------------------------------------
+/*
+
+# --- Project metadata --------------------------------------------------------
+!/.gitignore
+!/.gitattributes
+!/LICENSE
+!/LICENSING.md
+!/README.md
+
+# --- Sources -----------------------------------------------------------------
+!/CMakeLists.txt
+!/src/
+!/cmake/
+!/resources/
+!/assets/
+!/scripts/
+!/examples/
+
+# --- Build / packaging scripts ----------------------------------------------
+!/build_ffmpeg_min_ucrt64.ps1
+!/build_min_portable.ps1
+!/build_plugin_portable.ps1
+!/make_installer.ps1
+!/make_msix.ps1
+!/pack.ps1
+!/run.ps1
+
+# ---------------------------------------------------------------------------
+# Safety net: never publish these, even inside re-included folders.
+# ---------------------------------------------------------------------------
+# Runtime config / user data (camera URLs, credentials, recordings)
+settings.ini
+settings.ini.bak
+*.ini.bak
+recordings/
+cache/
+*.yuvc
+*.ts
+*.mp4
+*.mkv
+*.log
+
+# Secrets / signing material
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*secret*
+.env
+.env.*
+
+# Build output and binaries
+build*/
+dist/
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.lib
+*.msi
+*.msix
+*.zip
+*.7z
+__pycache__/
+*.pyc
+
+# Editor / tooling
+.vs/
+.vscode/
+.idea/
+.claude/
